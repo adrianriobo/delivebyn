@@ -65,8 +65,8 @@ scp_from_cmd () {
 # Generate SSH command
 ssh_cmd () {
     if [[ ! -z "${TARGET_HOST_KEY_PATH+x}" ]]; then
-        echo "ssh $(connect_options) -i ${TARGET_HOST_KEY_PATH} $(uri) ${1}"
+        echo "ssh $(connect_options) -i ${TARGET_HOST_KEY_PATH} $(uri) $@"
     else
-        echo "sshpass -p ${TARGET_HOST_PASSWORD} ssh $(connect_options) $(uri) ${1}"
+        echo "sshpass -p ${TARGET_HOST_PASSWORD} ssh $(connect_options) $(uri) $@"
     fi
 }
