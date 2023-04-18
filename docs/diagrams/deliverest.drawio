@@ -1,0 +1,145 @@
+<mxfile host="app.diagrams.net" modified="2023-04-14T08:41:13.980Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="IKKu3XZw2a6iD11B6jcr" version="21.1.5" type="device">
+  <diagram name="Page-1" id="z1PRPF0wfzixQ7pO9ImC">
+    <mxGraphModel dx="1373" dy="695" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="jrnpPs5ssjDM90zKU71T-44" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="20" y="10" width="590" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="50" y="30" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-2" value="deliverest" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="35" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-5" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;" vertex="1" parent="1">
+          <mxGeometry x="425" y="120" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-6" value="WINDOWS" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="455.5" y="139" width="69" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-8" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="210" y="120" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-12" value="windows pwsc script" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="230" y="163" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-15" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.009;exitY=0.296;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitPerimeter=0;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="1" source="jrnpPs5ssjDM90zKU71T-8" target="jrnpPs5ssjDM90zKU71T-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="370" as="sourcePoint" />
+            <mxPoint x="450" y="320" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="100" y="145" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-16" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="210" y="335" as="sourcePoint" />
+            <mxPoint x="100" y="70" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="100" y="335" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-17" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.015;exitY=0.122;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.003;entryY=0.114;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="1" source="jrnpPs5ssjDM90zKU71T-8" target="jrnpPs5ssjDM90zKU71T-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="370" as="sourcePoint" />
+            <mxPoint x="420" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-18" value="SCP binary" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="330" y="109" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-19" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.015;exitY=0.378;exitDx=0;exitDy=0;entryX=-0.005;entryY=0.375;entryDx=0;entryDy=0;exitPerimeter=0;entryPerimeter=0;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="1" source="jrnpPs5ssjDM90zKU71T-8" target="jrnpPs5ssjDM90zKU71T-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="319" y="177.16" as="sourcePoint" />
+            <mxPoint x="425" y="177.16" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-20" value="SSH exec binary" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="127" width="101" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-21" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.005;exitY=0.622;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.002;entryY=0.62;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="1" source="jrnpPs5ssjDM90zKU71T-8" target="jrnpPs5ssjDM90zKU71T-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="320" y="210" as="sourcePoint" />
+            <mxPoint x="370" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-23" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.872;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.003;entryY=0.863;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="1" source="jrnpPs5ssjDM90zKU71T-8" target="jrnpPs5ssjDM90zKU71T-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="331" y="180" as="sourcePoint" />
+            <mxPoint x="435" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-24" value="SCP results" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="330" y="149" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-25" value="cleanup" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="330" y="169" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-26" value="FROM deliverest" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="109" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-28" value="powershell exec command" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="220" y="124" width="90" height="29" as="geometry" />
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-29" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;" vertex="1" parent="1">
+          <mxGeometry x="425" y="291" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-30" value="MAC M1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="455.5" y="310" width="69" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-31" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="210" y="291" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-32" value="darwin arm64 binary" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="225" y="334" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-33" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.015;exitY=0.122;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.008;entryY=0.123;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" source="jrnpPs5ssjDM90zKU71T-31" target="jrnpPs5ssjDM90zKU71T-29" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="541" as="sourcePoint" />
+            <mxPoint x="420" y="301" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-34" value="SCP binary" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="330" y="280" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-35" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.015;exitY=0.378;exitDx=0;exitDy=0;entryX=-0.005;entryY=0.375;entryDx=0;entryDy=0;exitPerimeter=0;entryPerimeter=0;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" source="jrnpPs5ssjDM90zKU71T-31" target="jrnpPs5ssjDM90zKU71T-29" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="319" y="348.15999999999997" as="sourcePoint" />
+            <mxPoint x="425" y="348.15999999999997" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-36" value="SSH exec binary" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="298" width="101" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-37" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.005;exitY=0.622;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.002;entryY=0.62;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" source="jrnpPs5ssjDM90zKU71T-31" target="jrnpPs5ssjDM90zKU71T-29" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="320" y="381" as="sourcePoint" />
+            <mxPoint x="370" y="331" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-38" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.872;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.003;entryY=0.863;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" source="jrnpPs5ssjDM90zKU71T-31" target="jrnpPs5ssjDM90zKU71T-29" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="331" y="351" as="sourcePoint" />
+            <mxPoint x="435" y="351" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-39" value="SCP results" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="330" y="320" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-40" value="cleanup" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="330" y="340" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-41" value="bash exec command" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="220" y="295" width="90" height="29" as="geometry" />
+        </mxCell>
+        <mxCell id="jrnpPs5ssjDM90zKU71T-42" value="FROM deliverest" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="300" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
