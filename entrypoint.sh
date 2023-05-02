@@ -13,6 +13,11 @@ if [[ ! remote_required ]] || [[ ! mamp_required ]] || [[ -z "${ASSETS_FOLDER+x}
     exit 1
 fi
 
+# If ASSETS_HOOK exists run it
+if [[ ! -z "${ASSETS_HOOK+x}" ]]; then 
+    "${ASSETS_HOOK}"
+fi
+
 # Create execution folder 
 echo "Create assets folder on target"
 TARGET_FOLDER="${TARGET_FOLDER:-"deliverest-${RANDOM}"}"
