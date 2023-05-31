@@ -64,9 +64,17 @@ scp_from_cmd () {
 
 # Generate SSH command
 ssh_cmd () {
+    cmd=""
     if [[ ! -z "${TARGET_HOST_KEY_PATH+x}" ]]; then
-        echo "ssh $(connect_options) -i ${TARGET_HOST_KEY_PATH} $(uri) $@"
+        cmd="ssh $(connect_options) -i ${TARGET_HOST_KEY_PATH} $(uri) "
     else
-        echo "sshpass -p ${TARGET_HOST_PASSWORD} ssh $(connect_options) $(uri) $@"
+        cmd="sshpass -p ${TARGET_HOST_PASSWORD} ssh $(connect_options) $(uri) "
     fi
+    # On AWS MacOS ssh session is not recognized as expected
+    if [[ ${OS} == 'darwin' ]]; then
+        cmd+="sudo su - ${TARGET_HOST_USERNAME} -c \"PATH=\$PATH:/usr/local/bin && $@\""
+    else 
+        cmd+="$@"
+    fi
+    echo "${cmd}"
 }
