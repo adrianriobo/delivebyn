@@ -32,6 +32,6 @@ if [[ ! -z "${TARGET_RESULTS+x}" ]]; then
     $(scp_from_cmd "${TARGET_FOLDER}/${TARGET_RESULTS}" "${OUTPUT_FOLDER}/")
 fi
 
-if [ "${TARGET_CLENAUP:-}" = "true" ]; then
+if [ "${TARGET_CLEANUP:-}" = "true" ]; then
     $(ssh_cmd "rm -fr ${TARGET_FOLDER}")
 fi
