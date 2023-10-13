@@ -1,6 +1,25 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
-  ]
+    "config:recommended",
+    ":maintainLockFilesWeekly",
+    ":enablePreCommit",
+    "group:all",
+    "regexManagers:dockerfileVersions",
+    "schedule:weekly",
+    "docker:pinDigests",
+    "workarounds:supportRedHatImageVersion"
+  ],
+  "packageRules": [
+    {
+      "description": "Group patch updates",
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "groupName": "Patch updates",
+      "automerge": true,
+      "platformAutomerge": true
+    }
+  ],
+  "configMigration": true
 }
