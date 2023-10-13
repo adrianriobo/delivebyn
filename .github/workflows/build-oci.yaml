@@ -37,7 +37,7 @@ jobs:
           Containerfile
 
     - name: Log in to quay.io Registry
-      uses: redhat-actions/podman-login@v1.4
+      uses: redhat-actions/podman-login@v1.6
       with:
         registry: quay.io
         username: ${{ secrets.QUAY_IO_USERNAME }}
