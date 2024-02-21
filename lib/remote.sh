@@ -28,7 +28,36 @@ connect_options() {
     options="$options -o UserKnownHostsFile=/dev/null"
     options="$options -o ServerAliveInterval=30"
     options="$options -o ServerAliveCountMax=1200"
+    options="$options -o BatchMode=yes"
+    options="$options -o ConnectTimeout=3"
     echo $options
+}
+
+# If restart is involved, it can take a moment for the target host to become available again
+# Check the connection to the host; "delay" in seconds, "repeats" in number of reps
+# Run as: check_connection <repeats int> <delay int>
+# e.g. check_connection 30 10
+check_connection() {
+    repeats=$1
+    while [[ $repeats -gt 0 ]]
+    do
+        ssh_cmd "pwd"
+        if [[ $? -gt 0 ]] 
+        then
+            echo "reps remaining: $repeats" >&2
+            ((repeats--))
+            sleep $2
+        else
+            break
+        fi
+    done
+    # fail or pass the check
+    if [[ $repeats -gt 0 ]]
+    then
+        return 0
+    else
+        return 1
+    fi          
 }
 
 # Define remote connection

@@ -25,6 +25,15 @@ $(scp_to_cmd "${ASSETS_FOLDER}/*" "${TARGET_FOLDER}/")
 # Exec command
 $(ssh_cmd "$@")
 
+# Check ssh connection to target host
+CHECK_CONNECTION_ATTEMPTS=${CHECK_CONNECTION_ATTEMPTS:-30}
+CHECK_CONNECTION_DELAY=${CHECK_CONNECTION_DELAY:-10}
+check_connection  ${CHECK_CONNECTION_ATTEMPTS} ${CHECK_CONNECTION_DELAY}
+if [[ $? -gt 0 ]]
+then
+    exit 1
+fi
+
 # Copy results
 if [[ ! -z "${TARGET_RESULTS+x}" ]]; then
     # If exec create some reuslts we define the env and they will be copied to OUTPUT_FOLDER
