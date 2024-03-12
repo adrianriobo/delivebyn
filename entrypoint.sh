@@ -45,5 +45,5 @@ if [[ ! -z "${TARGET_RESULTS+x}" ]]; then
 fi
 
 if [ "${TARGET_CLEANUP:-}" = "true" ]; then
-    $(ssh_cmd "rm -fr ${TARGET_FOLDER}")
+    $(ssh_cmd "rm -r ${TARGET_FOLDER}")
 fi
