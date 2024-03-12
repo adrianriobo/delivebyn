@@ -3,6 +3,9 @@
 # Import libs
 source remote.sh
 
+# Default values
+TARGET_CLEANUP="${TARGET_CLEANUP:-"true"}"
+
 # Debug
 if [ "${DEBUG:-}" = "true" ]; then
     set -xuo 
