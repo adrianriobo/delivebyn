@@ -5,6 +5,9 @@ source remote.sh
 
 # Default values
 TARGET_CLEANUP="${TARGET_CLEANUP:-"true"}"
+CHECK_CONNECTION="${CHECK_CONNECTION:-"true"}"
+CHECK_CONNECTION_ATTEMPTS=${CHECK_CONNECTION_ATTEMPTS:-30}
+CHECK_CONNECTION_DELAY=${CHECK_CONNECTION_DELAY:-10}
 
 # Debug
 if [ "${DEBUG:-}" = "true" ]; then
@@ -14,6 +17,14 @@ fi
 # Validate
 if [[ ! remote_required ]] || [[ ! mamp_required ]] || [[ -z "${ASSETS_FOLDER+x}" ]]; then
     exit 1
+fi
+
+if [ "${CHECK_CONNECTION:-}" = "true" ]; then
+    check_connection  ${CHECK_CONNECTION_ATTEMPTS} ${CHECK_CONNECTION_DELAY}
+    if [[ $? -gt 0 ]]
+    then
+        exit 1
+    fi
 fi
 
 # Create execution folder 
@@ -28,13 +39,14 @@ $(scp_to_cmd "${ASSETS_FOLDER}/*" "${TARGET_FOLDER}/")
 # Exec command
 $(ssh_cmd "$@")
 
-# Check ssh connection to target host
-CHECK_CONNECTION_ATTEMPTS=${CHECK_CONNECTION_ATTEMPTS:-30}
-CHECK_CONNECTION_DELAY=${CHECK_CONNECTION_DELAY:-10}
-check_connection  ${CHECK_CONNECTION_ATTEMPTS} ${CHECK_CONNECTION_DELAY}
-if [[ $? -gt 0 ]]
-then
-    exit 1
+# If remote workload includes a reboot this is the only way to ensure we can 
+# copy results if any or cleanup
+if [ "${CHECK_CONNECTION:-}" = "true" ]; then
+    check_connection  ${CHECK_CONNECTION_ATTEMPTS} ${CHECK_CONNECTION_DELAY}
+    if [[ $? -gt 0 ]]
+    then
+        exit 1
+    fi
 fi
 
 # Copy results
