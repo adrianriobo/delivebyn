@@ -41,7 +41,7 @@ check_connection() {
     repeats=$1
     while [[ $repeats -gt 0 ]]
     do
-        ssh_cmd "pwd"
+        $(ssh_cmd "pwd")
         if [[ $? -gt 0 ]] 
         then
             echo "reps remaining: $repeats" >&2
