@@ -28,7 +28,7 @@ jobs:
 
     - name: Build image
       id: build-image
-      uses: redhat-actions/buildah-build@v2.12
+      uses: redhat-actions/buildah-build@v2.13
       with:
         image: deliverest
         tags: ${{ env.TAG }}
@@ -37,7 +37,7 @@ jobs:
           Containerfile
 
     - name: Log in to quay.io Registry
-      uses: redhat-actions/podman-login@v1.6
+      uses: redhat-actions/podman-login@v1.7
       with:
         registry: quay.io
         username: ${{ secrets.QUAY_IO_USERNAME }}
@@ -45,7 +45,7 @@ jobs:
 
     - name: Push to quay.io
       id: push-to-quay
-      uses: redhat-actions/push-to-registry@v2.7
+      uses: redhat-actions/push-to-registry@v2.8
       with:
         image: ${{ steps.build-image.outputs.image }}
         tags: ${{ steps.build-image.outputs.tags }}
