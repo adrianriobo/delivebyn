@@ -1,8 +1,8 @@
-FROM registry.access.redhat.com/ubi9/ubi-minimal@sha256:bc552efb4966aaa44b02532be3168ac1ff18e2af299d0fe89502a1d9fabafbc5
+FROM quay.io/fedora/fedora:40
 
-LABEL org.opencontainers.image.authors="Adrian Riobo <ariobolo@redhat.com>"
+LABEL org.opencontainers.image.authors="CRCQE <devtools-cdkqe@redhat.com>"
 
-RUN microdnf install -y openssh-clients sshpass zip jq
+RUN dnf install -y openssh-clients sshpass zip jq
 
 COPY lib/common/* lib/os/ entrypoint.sh /usr/local/bin/
 
