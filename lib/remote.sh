@@ -85,9 +85,9 @@ scp_to_cmd () {
 # $2 local path
 scp_from_cmd () {
     if [[ ! -z "${TARGET_HOST_KEY_PATH+x}" ]]; then
-        echo "scp -r -X buffer=32768 $(connect_options) -i ${TARGET_HOST_KEY_PATH} $(uri):${1} ${2}"
+        echo "scp -r $(connect_options) -i ${TARGET_HOST_KEY_PATH} $(uri):${1} ${2}"
     else
-        echo "sshpass -p ${TARGET_HOST_PASSWORD} scp -r -X buffer=32768 $(connect_options) $(uri):${1} ${2}" 
+        echo "sshpass -p ${TARGET_HOST_PASSWORD} scp -r $(connect_options) $(uri):${1} ${2}" 
     fi
 }
 
