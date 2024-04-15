@@ -4,6 +4,6 @@ LABEL org.opencontainers.image.authors="Adrian Riobo <ariobolo@redhat.com>"
 
 RUN microdnf install -y openssh-clients sshpass zip jq
 
-COPY lib/* entrypoint.sh /usr/local/bin/
+COPY lib/common/* lib/os/ entrypoint.sh /usr/local/bin/
 
 ENTRYPOINT ["entrypoint.sh"]

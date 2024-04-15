@@ -1,0 +1,4 @@
+# This file represents the interface os should comply with
+
+# This will return syntax remove a folder 
+remove_folder($1 folder name) string 

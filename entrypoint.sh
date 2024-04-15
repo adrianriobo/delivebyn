@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Import libs
-source remote.sh
+source /usr/local/bin/remote.sh
+source /usr/local/bin/${OS}/os.sh
 
 # Default values
 TARGET_CLEANUP="${TARGET_CLEANUP:-"true"}"
@@ -57,5 +58,7 @@ if [[ ! -z "${TARGET_RESULTS+x}" ]]; then
 fi
 
 if [ "${TARGET_CLEANUP:-}" = "true" ]; then
-    $(ssh_cmd "rm -r ${TARGET_FOLDER}")
+    # This will create the cmd based on OS env with the right syntax
+    cmd="$(remove_folder ${TARGET_FOLDER})"
+    $(ssh_cmd ${cmd})
 fi
