@@ -20,6 +20,11 @@ if [[ ! remote_required ]] || [[ ! mamp_required ]] || [[ -z "${ASSETS_FOLDER+x}
     exit 1
 fi
 
+# Create ssh config file is using proxy connection
+if [[ -n "${BASTION_HOST}" && -n "${BASTION_HOST_USERNAME}" ]];then
+    ssh_config_file
+fi
+
 if [ "${CHECK_CONNECTION:-}" = "true" ]; then
     check_connection  ${CHECK_CONNECTION_ATTEMPTS} ${CHECK_CONNECTION_DELAY}
     if [[ $? -gt 0 ]]
@@ -27,6 +32,7 @@ if [ "${CHECK_CONNECTION:-}" = "true" ]; then
         exit 1
     fi
 fi
+
 
 # Create execution folder 
 echo "Create assets folder on target"

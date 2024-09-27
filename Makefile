@@ -1,4 +1,4 @@
-VERSION ?= 0.0.6
+VERSION ?= 0.0.7
 CONTAINER_MANAGER ?= podman
 IMG ?= quay.io/rhqp/deliverest:v${VERSION}
 
