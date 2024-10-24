@@ -27,7 +27,9 @@ connect_options() {
     options="$options -o UserKnownHostsFile=/dev/null"
     options="$options -o ServerAliveInterval=30"
     options="$options -o ServerAliveCountMax=1200"
-    options="$options -o BatchMode=yes"
+    if [[ -n "${TARGET_HOST_KEY_PATH+x}" ]]; then
+        options="$options -o BatchMode=yes"
+    fi
     options="$options -o ConnectTimeout=3"
     echo $options
 }
@@ -59,33 +61,16 @@ EOF
 # Check the connection to the host; "delay" in seconds, "repeats" in number of reps
 # Run as: check_connection <repeats int> <delay int>
 # e.g. check_connection 30 10
+
 check_connection() {
-    repeats=$1
-    while [[ $repeats -gt 0 ]]
-    do
-        $(ssh_cmd "pwd")
-        if [[ $? -gt 0 ]] 
-        then
-            echo "reps remaining: $repeats" >&2
-            ((repeats--))
-            sleep $2
-        else
-            break
-        fi
-    done
-    # fail or pass the check
-    if [[ $repeats -gt 0 ]]
-    then
-        return 0
-    else
-        return 1
-    fi          
+    check_cmd="$(ssh_cmd pwd)"
+    exec_and_retry $1 $2 $check_cmd
 }
 
 # Define remote connection
 uri () {
     local remote="${TARGET_HOST_USERNAME}@${TARGET_HOST}"
-    if [[ -n "${TARGET_HOST_DOMAIN}" ]]; then
+    if [[ -n "${TARGET_HOST_DOMAIN+x}" ]]; then
         remote="${TARGET_HOST_USERNAME}@${TARGET_HOST_DOMAIN}@${TARGET_HOST}"
     fi
     echo "${remote}" 
@@ -96,9 +81,9 @@ uri () {
 # $2 remote path
 scp_to_cmd () {
     cmd="scp -r $(connect_options) "
-    if [[ -n "${BASTION_HOST}" && -n "${BASTION_HOST_USERNAME}" ]]; then
+    if [[ -n "${BASTION_HOST+x}" && -n "${BASTION_HOST_USERNAME+x}" ]]; then
         echo "${cmd} -F ssh_config ${1} target_host:${2}"
-    elif [[ -n "${TARGET_HOST_KEY_PATH}" ]]; then
+    elif [[ -n "${TARGET_HOST_KEY_PATH+x}" ]]; then
         echo "${cmd} -i ${TARGET_HOST_KEY_PATH} ${1} $(uri):${2}"
     else
         echo "sshpass -p ${TARGET_HOST_PASSWORD} ${cmd} ${1} $(uri):${2}" 
@@ -110,9 +95,9 @@ scp_to_cmd () {
 # $2 local path
 scp_from_cmd () {
     cmd="scp -r $(connect_options) "
-    if [[ -n "${BASTION_HOST}" && -n "${BASTION_HOST_USERNAME}" ]]; then
+    if [[ -n "${BASTION_HOST+x}" && -n "${BASTION_HOST_USERNAME+x}" ]]; then
         echo "${cmd} -F ssh_config target_host:${1} ${2} "
-    elif [[ -n "${TARGET_HOST_KEY_PATH}" ]]; then
+    elif [[ -n "${TARGET_HOST_KEY_PATH+x}" ]]; then
         echo "${cmd} -i ${TARGET_HOST_KEY_PATH} $(uri):${1} ${2}"
     else
         echo "sshpass -p ${TARGET_HOST_PASSWORD} ${cmd} $(uri):${1} ${2}" 
@@ -122,9 +107,9 @@ scp_from_cmd () {
 # Generate SSH command
 ssh_cmd () {
     cmd="ssh $(connect_options) "
-    if [[ -n "${BASTION_HOST}" && -n "${BASTION_HOST_USERNAME}" ]]; then
+    if [[ -n "${BASTION_HOST+x}" && -n "${BASTION_HOST_USERNAME+x}" ]]; then
         cmd+="-F ssh_config target_host "
-    elif [[ -n "${TARGET_HOST_KEY_PATH}" ]]; then
+    elif [[ -n "${TARGET_HOST_KEY_PATH+x}" ]]; then
         cmd+="-i ${TARGET_HOST_KEY_PATH} $(uri) "
     else
         cmd="sshpass -p ${TARGET_HOST_PASSWORD} ${cmd} $(uri) "
@@ -137,4 +122,28 @@ ssh_cmd () {
         cmd+=" $@"
     fi
     echo "${cmd}"
+}
+
+# Execute command and re-try if failed
+exec_and_retry() {
+    local retries="$1"
+    local wait="$2"
+    shift 2
+    local command="$@"
+
+    # Run the command, and save the exit code
+    $command
+    local exit_code=$?
+
+    # If the exit code is non-zero (i.e. command failed), and we have not
+    # reached the maximum number of retries, run the command again
+    if [[ $exit_code -ne 0 && $retries -gt 0 ]]; then
+    # Wait before retrying
+    sleep $wait
+
+    exec_and_retry $(($retries - 1)) $wait "$command"
+    else
+    # Return the exit code from the command
+    return $exit_code
+    fi
 }
