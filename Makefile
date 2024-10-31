@@ -1,6 +1,6 @@
 VERSION ?= 0.0.7
 CONTAINER_MANAGER ?= podman
-IMG ?= quay.io/rhqp/deliverest:v${VERSION}
+IMG ?= quay.io/devtools-qe-incubator/deliverest:v${VERSION}
 
 .PHONY: oci-build
 oci-build: 
