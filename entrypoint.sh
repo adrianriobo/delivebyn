@@ -64,7 +64,7 @@ fi
 if [[ ! -z "${TARGET_RESULTS+x}" ]]; then
     # If exec create some reuslts we define the env and they will be copied to OUTPUT_FOLDER
     OUTPUT_FOLDER="${OUTPUT_FOLDER:-"/output"}"
-    scp_cmd="$(scp_from_cmd "${TARGET_FOLDER}/${TARGET_RESULTS}" "${OUTPUT_FOLDER}/)")"
+    scp_cmd="$(scp_from_cmd "${TARGET_FOLDER}/${TARGET_RESULTS}" "${OUTPUT_FOLDER}/")"
     exec_and_retry ${SSH_CMD_ATTEMPTS} ${SSH_CMD_DELAY} ${scp_cmd}
 fi
 
